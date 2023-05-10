@@ -16,8 +16,23 @@ namespace HypixelAPIProgram
         public Form1()
         {
             InitializeComponent();
-        }
+            // 添加第一列
+            DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
+            col1.HeaderText = "项目";
+            col1.Name = "内容";
+            col1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvPlayerData.Columns.Add(col1);
 
+            // 添加第二列
+            DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
+            col2.HeaderText = "内容";
+            col2.Name = "项目";
+            col2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvPlayerData.Columns.Add(col2);
+
+
+        }
+        private const string mode = null;
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -36,7 +51,7 @@ namespace HypixelAPIProgram
                     return;
                 }
 
-                Dictionary<string, string> playerData = GetBedwarsData(apiKey, playerName, comboBox1.SelectedText);
+                Dictionary<string, string> playerData = GetBedwarsData(apiKey, playerName);
                 if (playerData == null)
                 {
                     MessageBox.Show("Failed to get player data.");
@@ -74,8 +89,9 @@ namespace HypixelAPIProgram
                 }
             }
         }
-        private Dictionary<string, string> GetBedwarsData(string apiKey, string playerId, string mode)
+        private Dictionary<string, string> GetBedwarsData(string apiKey, string playerId)
         {
+            string mode = (string)comboBox1.SelectedItem;
             // 构造 Mojang API 获取 UUID 的 URL
             var mojangUrl = $"https://api.mojang.com/users/profiles/minecraft/{playerId}";
             // 发送 GET 请求获取玩家 UUID
@@ -112,6 +128,7 @@ namespace HypixelAPIProgram
                 bedwarsallData.Add("最终击杀数", bedwarsStats.GetProperty("final_kills_bedwars").GetString());
                 bedwarsallData.Add("最终死亡数", bedwarsStats.GetProperty("final_deaths_bedwars").GetString());
                 return bedwarsallData;
+                
             }
             else if (mode == "4v4")
             {
@@ -134,23 +151,12 @@ namespace HypixelAPIProgram
                 // 将玩家 bw4v4 数据添加到字典中
                 var bedwarssoloData = new Dictionary<string, string>();
                 bedwarssoloData.Add("玩家名字", playerId);
-                bedwarssoloData.Add("等级", bedwarsStats.GetProperty("level").GetString());
-                bedwarssoloData.Add("总游戏次数", bedwarsStats.GetProperty("games_played_bedwars_1").GetString());
-                bedwarssoloData.Add("胜利次数", bedwarsStats.GetProperty("wins_bedwars").GetString());
-                bedwarssoloData.Add("失败次数", bedwarsStats.GetProperty("losses_bedwars").GetString());
-                bedwarssoloData.Add("胜率", bedwarsStats.GetProperty("win_ratio_bedwars").GetString());
-                bedwarssoloData.Add("总杀敌数", bedwarsStats.GetProperty("kills_bedwars").GetString());
-                bedwarssoloData.Add("总死亡数", bedwarsStats.GetProperty("deaths_bedwars").GetString());
-                bedwarssoloData.Add("K/D 比", bedwarsStats.GetProperty("k_d").GetString());
-                bedwarssoloData.Add("床摧毁次数", bedwarsStats.GetProperty("beds_broken_bedwars").GetString());
-                bedwarssoloData.Add("床丢失次数", bedwarsStats.GetProperty("beds_lost_bedwars").GetString());
-                bedwarssoloData.Add("最终击杀数", bedwarsStats.GetProperty("final_kills_bedwars").GetString());
-                bedwarssoloData.Add("最终死亡数", bedwarsStats.GetProperty("final_deaths_bedwars").GetString());
-                bedwarssoloData.Add("最终 K/D 比", bedwarsStats.GetProperty("final_k_d").GetString());
+                bedwarssoloData.Add("API没有solo的数据", "L");
                 return bedwarssoloData;
             }
 
 
+            return null;
 
 
         }
