@@ -133,8 +133,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="7.0.2" />
-  </ItemGroup>
+
 
 </Project>
