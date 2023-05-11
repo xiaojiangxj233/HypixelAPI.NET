@@ -117,16 +117,16 @@ namespace HypixelAPIProgram
                 // 将玩家 Bedwars 数据添加到字典中
                 var bedwarsallData = new Dictionary<string, string>();
                 bedwarsallData.Add("玩家名字", playerId);
-                bedwarsallData.Add("硬币", bedwarsStats.GetProperty("coins").GetString());
-                bedwarsallData.Add("总游戏次数", bedwarsStats.GetProperty("games_played_bedwars_1").GetString());
-                bedwarsallData.Add("胜利次数", bedwarsStats.GetProperty("wins_bedwars").GetString());
-                bedwarsallData.Add("失败次数", bedwarsStats.GetProperty("losses_bedwars").GetString());
-                bedwarsallData.Add("总杀敌数", bedwarsStats.GetProperty("kills_bedwars").GetString());
-                bedwarsallData.Add("总死亡数", bedwarsStats.GetProperty("deaths_bedwars").GetString());
-                bedwarsallData.Add("床摧毁次数", bedwarsStats.GetProperty("beds_broken_bedwars").GetString());
-                bedwarsallData.Add("床丢失次数", bedwarsStats.GetProperty("beds_lost_bedwars").GetString());
-                bedwarsallData.Add("最终击杀数", bedwarsStats.GetProperty("final_kills_bedwars").GetString());
-                bedwarsallData.Add("最终死亡数", bedwarsStats.GetProperty("final_deaths_bedwars").GetString());
+                bedwarsallData.Add("硬币", bedwarsStats.GetProperty("coins").ToString());
+                bedwarsallData.Add("总游戏次数", bedwarsStats.GetProperty("games_played_bedwars_1"). ToString());
+                bedwarsallData.Add("胜利次数", bedwarsStats.GetProperty("wins_bedwars").ToString());
+                bedwarsallData.Add("失败次数", bedwarsStats.GetProperty("losses_bedwars").ToString());
+                bedwarsallData.Add("总杀敌数", bedwarsStats.GetProperty("kills_bedwars").ToString());
+                bedwarsallData.Add("总死亡数", bedwarsStats.GetProperty("deaths_bedwars").ToString());
+                bedwarsallData.Add("床摧毁次数", bedwarsStats.GetProperty("beds_broken_bedwars").ToString());
+                bedwarsallData.Add("床丢失次数", bedwarsStats.GetProperty("beds_lost_bedwars").ToString());
+                bedwarsallData.Add("最终击杀数", bedwarsStats.GetProperty("final_kills_bedwars").ToString());
+                bedwarsallData.Add("最终死亡数", bedwarsStats.GetProperty("final_deaths_bedwars").ToString());
                 return bedwarsallData;
                 
             }
@@ -135,15 +135,15 @@ namespace HypixelAPIProgram
                 // 将玩家 bw4v4 数据添加到字典中
                 var bedwars4v4Data = new Dictionary<string, string>();
                 bedwars4v4Data.Add("玩家名字", playerId);
-                bedwars4v4Data.Add("总游戏次数", bedwarsStats.GetProperty("four_four_games_played_bedwars").GetString());
-                bedwars4v4Data.Add("胜利次数", bedwarsStats.GetProperty("four_four_wins_bedwars").GetString());
-                bedwars4v4Data.Add("失败次数", bedwarsStats.GetProperty("four_four_losses_bedwars").GetString());
-                bedwars4v4Data.Add("总杀敌数", bedwarsStats.GetProperty("four_four_kills_bedwars").GetString());
-                bedwars4v4Data.Add("总死亡数", bedwarsStats.GetProperty("four_four_deaths_bedwars").GetString());
-                bedwars4v4Data.Add("床摧毁次数", bedwarsStats.GetProperty("four_four_beds_broken_bedwars").GetString());
-                bedwars4v4Data.Add("床丢失次数", bedwarsStats.GetProperty("four_four_beds_lost_bedwars").GetString());
-                bedwars4v4Data.Add("最终击杀数", bedwarsStats.GetProperty("four_four_final_kills_bedwars").GetString());
-                bedwars4v4Data.Add("最终死亡数", bedwarsStats.GetProperty("four_four_final_deaths_bedwars").GetString());
+                bedwars4v4Data.Add("总游戏次数", bedwarsStats.GetProperty("four_four_games_played_bedwars").ToString());
+                bedwars4v4Data.Add("胜利次数", bedwarsStats.GetProperty("four_four_wins_bedwars").ToString());
+                bedwars4v4Data.Add("失败次数", bedwarsStats.GetProperty("four_four_losses_bedwars").ToString());
+                bedwars4v4Data.Add("总杀敌数", bedwarsStats.GetProperty("four_four_kills_bedwars").ToString());
+                bedwars4v4Data.Add("总死亡数", bedwarsStats.GetProperty("four_four_deaths_bedwars").ToString());
+                bedwars4v4Data.Add("床摧毁次数", bedwarsStats.GetProperty("four_four_beds_broken_bedwars").ToString());
+                bedwars4v4Data.Add("床丢失次数", bedwarsStats.GetProperty("four_four_beds_lost_bedwars").ToString());
+                bedwars4v4Data.Add("最终击杀数", bedwarsStats.GetProperty("four_four_final_kills_bedwars").ToString());
+                bedwars4v4Data.Add("最终死亡数", bedwarsStats.GetProperty("four_four_final_deaths_bedwars").ToString());
                 return bedwars4v4Data;
             }
             else if (mode == "solo")
